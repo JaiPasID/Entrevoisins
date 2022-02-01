@@ -37,18 +37,11 @@
 
 
             <android.support.v7.widget.Toolbar
+                android:id="@+id/nameToolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_collapseMode="pin">
 
-                <ImageButton
-                    android:id="@+id/bouton_retour"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/retour"
-                    app:layout_anchor="@id/app_bar"
-                    app:layout_anchorGravity="right"
-                    android:backgroundTint="@color/trans"/>
 
             </android.support.v7.widget.Toolbar>
 
