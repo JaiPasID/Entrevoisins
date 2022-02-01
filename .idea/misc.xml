@@ -8,7 +8,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Application/AndroidStudio/EntreVoisinStream/Entrevoisins/app/src/main/res/layout/activity_add_neighbour.xml" value="0.2674772036474164" />
         <entry key="..\:/Application/AndroidStudio/EntreVoisinStream/Entrevoisins/app/src/main/res/layout/activity_detail_voisin.xml" value="0.42391304347826086" />
+        <entry key="..\:/Application/AndroidStudio/EntreVoisinStream/Entrevoisins/app/src/main/res/layout/activity_list_neighbour.xml" value="0.42844202898550726" />
         <entry key="..\:/Users/JaiPasID/OneDrive/Bureau/Application/AndroidStudio/Open/P3/EntreVoisinFinale/Android/Entrevoisins/app/src/main/res/drawable/ic_account.xml" value="0.34427083333333336" />
         <entry key="..\:/Users/JaiPasID/OneDrive/Bureau/Application/AndroidStudio/Open/P3/EntreVoisinFinale/Android/Entrevoisins/app/src/main/res/drawable/ic_delete_white_24dp.xml" value="0.34427083333333336" />
         <entry key="..\:/Users/JaiPasID/OneDrive/Bureau/Application/AndroidStudio/Open/P3/EntreVoisinFinale/Android/Entrevoisins/app/src/main/res/drawable/ic_launcher_background.xml" value="0.34427083333333336" />

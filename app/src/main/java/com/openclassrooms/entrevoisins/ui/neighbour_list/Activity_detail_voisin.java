@@ -8,10 +8,12 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import com.openclassrooms.entrevoisins.R;
+import com.openclassrooms.entrevoisins.model.Neighbour;
 
 public class Activity_detail_voisin extends AppCompatActivity {
 
     Toolbar mToolbar;
+    Intent intent =  getIntent();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +26,21 @@ public class Activity_detail_voisin extends AppCompatActivity {
 
        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+       mToolbar.setTitle("Caroline");
 
+
+
+       if (intent != null){
+           Neighbour neighbour = intent.getParcelableExtra("Neighbourg");
+           if (neighbour != null){
+               neighbour.getName();
+               neighbour.getAvatarUrl();
+               neighbour.getAddress();
+               neighbour.getPhoneNumber();
+               neighbour.getPhoneNumber();
+               neighbour.getSiteInternet();
+           }
+       }
 
     }
 }
