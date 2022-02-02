@@ -51,9 +51,6 @@ public class Activity_detail_voisin extends AppCompatActivity {
        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-
-
-
        Intent intent = getIntent();
        Neighbour id = intent.getParcelableExtra("Neighbourg");
 
@@ -77,8 +74,6 @@ public class Activity_detail_voisin extends AppCompatActivity {
         mSiteInternet.setText(site);
         mAPropos.setText(aPropos);
         mIdProfile.setText(name);
-
-
 
 
     }
