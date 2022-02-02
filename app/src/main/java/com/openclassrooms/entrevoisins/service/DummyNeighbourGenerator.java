@@ -39,9 +39,5 @@ public abstract class DummyNeighbourGenerator {
         return new ArrayList<>(DUMMY_NEIGHBOURS);
     }
 
-    public static List<Neighbour> LIST_FAVORIS = Arrays.asList();
-
-    static List<Neighbour> addfavoris() { return  new ArrayList<>(LIST_FAVORIS); }
-
 
 }

@@ -32,7 +32,7 @@
                 android:id="@+id/nom"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Caroline"
+
                 android:textSize="30sp"
                 android:textColor="@color/black"
                 android:layout_marginStart="10dp"/>
@@ -42,7 +42,7 @@
                 android:id="@+id/adress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Adresse"
+
                 android:textSize="20sp"
                 android:drawableStart="@drawable/map"
                 android:drawablePadding="10dp"
@@ -54,7 +54,7 @@
                     android:id="@+id/telephone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Tel"
+
                     android:textSize="20sp"
                     android:drawableStart="@drawable/phone"
                     android:drawablePadding="10dp"
@@ -66,7 +66,7 @@
                     android:id="@+id/site_internet"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Site Internet"
+
                     android:textSize="20sp"
                     android:drawableStart="@drawable/reseaux"
                     android:drawablePadding="10dp"
@@ -104,7 +104,6 @@
                 android:id="@+id/text_a_propos_de_moi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/blabla"
                 android:layout_marginTop="25dp"
                 android:textSize="20sp"
                 android:layout_marginStart="10dp"/>

@@ -65,10 +65,12 @@ public class NeighbourFragment extends Fragment {
         mRecyclerView.setAdapter(new MyNeighbourRecyclerViewAdapter(mNeighbours));
     }
 
+
     @Override
     public void onResume() {
         super.onResume();
             initList();
+
 
     }
 
@@ -93,6 +95,7 @@ public class NeighbourFragment extends Fragment {
 
         mApiService.deleteNeighbour(event.neighbour);
         initList();
+
 
     }
 }

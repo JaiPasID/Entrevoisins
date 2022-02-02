@@ -18,9 +18,9 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <ImageView
+                android:id="@+id/photoProfil"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
-                android:background="@drawable/imageprofiletest"
                 android:contentDescription="@string/imageprofile" />
 
 
@@ -29,7 +29,6 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/id_profile"
                 android:textSize="25sp"
-                android:text="@string/caroline"
                 android:textColor="@color/white"
                 android:layout_gravity="bottom"
                 android:layout_marginStart="20dp"
