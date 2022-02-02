@@ -22,7 +22,6 @@ import java.lang.annotation.Target;
 public class Activity_detail_voisin extends AppCompatActivity {
 
     Toolbar mToolbar;
-    Intent intent =  getIntent();
 
     TextView mNom, mAdress, mTelephone, mSiteInternet, mAPropos, mIdProfile;
 
@@ -50,7 +49,6 @@ public class Activity_detail_voisin extends AppCompatActivity {
        setSupportActionBar(mToolbar);
 
        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
 
 
 
