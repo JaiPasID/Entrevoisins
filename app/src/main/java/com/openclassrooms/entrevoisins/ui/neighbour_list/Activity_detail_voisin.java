@@ -3,6 +3,7 @@ package com.openclassrooms.entrevoisins.ui.neighbour_list;
 import static com.openclassrooms.entrevoisins.ui.neighbour_list.MyNeighbourRecyclerViewAdapter.NEIGBOURG_KEYS;
 
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,7 +18,9 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.openclassrooms.entrevoisins.R;
+import com.openclassrooms.entrevoisins.di.DI;
 import com.openclassrooms.entrevoisins.model.Neighbour;
+import com.openclassrooms.entrevoisins.service.NeighbourApiService;
 
 import java.lang.annotation.Target;
 
@@ -28,6 +31,12 @@ public class Activity_detail_voisin extends AppCompatActivity {
     TextView mNom, mAdress, mTelephone, mSiteInternet, mAPropos, mIdProfile;
 
     ImageView mPhotoProfile;
+
+    FloatingActionButton mFavoritBouton;
+
+    private NeighbourApiService mApiService ;
+
+    Neighbour neighbour;
 
 
 
@@ -44,29 +53,31 @@ public class Activity_detail_voisin extends AppCompatActivity {
        mAPropos = findViewById(R.id.a_propos_de_moi);
        mPhotoProfile = findViewById(R.id.photoProfil);
        mIdProfile = findViewById(R.id.id_profile);
+       mFavoritBouton = findViewById(R.id.bouton_flottan);
 
+        mApiService = DI.getNeighbourApiService();
 
+        configureToolbar();
 
-        ConfigureToolbar();
+       initview();
 
-       Initview();
-
-
+        clikFavoris ();
+        changeFavoris();
 
 
     }
 
-    private void ConfigureToolbar(){
+    private void configureToolbar(){
 
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
 
-    private void Initview(){
+    private void initview(){
 
         Intent intent = getIntent();
-        Neighbour neighbour = intent.getParcelableExtra(NEIGBOURG_KEYS);
+        neighbour = intent.getParcelableExtra(NEIGBOURG_KEYS);
 
         String name = neighbour.getName();
         String adresse = neighbour.getAddress();
@@ -87,4 +98,36 @@ public class Activity_detail_voisin extends AppCompatActivity {
         mIdProfile.setText(name);
 
     }
+
+    private void clikFavoris (){
+
+        mFavoritBouton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mApiService.IsFavoris(neighbour)){
+
+                    mApiService.removeFromeFavoris(neighbour);
+
+                }else {
+
+                    mApiService.addVoisinFavoris(neighbour);
+                }
+            }
+        });
+
+    }
+
+    private void changeFavoris(){
+
+        if (mApiService.IsFavoris(neighbour)){
+
+            // todo changer bouton elle doit etre jaune ici
+
+        }else {
+
+            // todo changer bouton elle doit etre blanche ici
+        }
+
+    }
+
 }
