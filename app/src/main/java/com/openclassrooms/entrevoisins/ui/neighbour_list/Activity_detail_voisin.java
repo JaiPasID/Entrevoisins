@@ -1,5 +1,7 @@
 package com.openclassrooms.entrevoisins.ui.neighbour_list;
 
+import static com.openclassrooms.entrevoisins.ui.neighbour_list.MyNeighbourRecyclerViewAdapter.NEIGBOURG_KEYS;
+
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -44,27 +46,38 @@ public class Activity_detail_voisin extends AppCompatActivity {
        mIdProfile = findViewById(R.id.id_profile);
 
 
-       setSupportActionBar(mToolbar);
 
-       getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        ConfigureToolbar();
+
+       Initview();
 
 
-       Intent intent = getIntent();
-       Neighbour id = intent.getParcelableExtra("Neighbourg");
 
-        String name = id.getName();
-        String adresse = id.getAddress();
-        String tel = id.getPhoneNumber();
-        String site = id.getSiteInternet();
-        String aPropos = id.getAboutMe();
+
+    }
+
+    private void ConfigureToolbar(){
+
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+    }
+
+    private void Initview(){
+
+        Intent intent = getIntent();
+        Neighbour neighbour = intent.getParcelableExtra(NEIGBOURG_KEYS);
+
+        String name = neighbour.getName();
+        String adresse = neighbour.getAddress();
+        String tel = neighbour.getPhoneNumber();
+        String site = neighbour.getSiteInternet();
+        String aPropos = neighbour.getAboutMe();
 
 
         Glide.with(mPhotoProfile.getContext())
-                .load(id.getAvatarUrl())
-                .override(400,250) // le syteme ne veut rien savoir
+                .load(neighbour.getAvatarUrl())
                 .into(mPhotoProfile);
-
-
 
         mNom.setText(name);
         mAdress.setText(adresse);

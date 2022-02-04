@@ -26,6 +26,8 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
 
     private final List<Neighbour> mNeighbours;
 
+    public static String NEIGBOURG_KEYS = "Neighbourg";
+
     public MyNeighbourRecyclerViewAdapter(List<Neighbour> items) {
         mNeighbours = items;
     }
@@ -51,7 +53,7 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(holder.itemView.getContext(), Activity_detail_voisin.class);
-                intent.putExtra("Neighbourg", neighbour);
+                intent.putExtra(NEIGBOURG_KEYS, neighbour);
                 holder.itemView.getContext().startActivity(intent);
 
 
