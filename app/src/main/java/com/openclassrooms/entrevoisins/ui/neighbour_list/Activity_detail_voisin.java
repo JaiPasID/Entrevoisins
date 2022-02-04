@@ -29,8 +29,6 @@ public class Activity_detail_voisin extends AppCompatActivity {
 
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,7 +72,6 @@ public class Activity_detail_voisin extends AppCompatActivity {
         mSiteInternet.setText(site);
         mAPropos.setText(aPropos);
         mIdProfile.setText(name);
-
 
     }
 }
