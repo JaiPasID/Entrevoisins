@@ -3,9 +3,12 @@ package com.openclassrooms.entrevoisins.ui.neighbour_list;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.widget.Switch;
 
 
 public class ListNeighbourPagerAdapter extends FragmentPagerAdapter {
+
+    private static int MUN_ITEM = 2;
 
     public ListNeighbourPagerAdapter(FragmentManager fm) {
         super(fm);
@@ -17,9 +20,8 @@ public class ListNeighbourPagerAdapter extends FragmentPagerAdapter {
      * @return
      */
     @Override
-    public Fragment getItem(int position) {
-        return NeighbourFragment.newInstance();
-    }
+    public Fragment getItem(int position) { return NeighbourFragment.newInstance(); }
+
 
     /**
      * get the number of pages
@@ -27,7 +29,8 @@ public class ListNeighbourPagerAdapter extends FragmentPagerAdapter {
      */
     @Override
     public int getCount() {
-        return 2;
+        return MUN_ITEM;
     }
+
 
 }

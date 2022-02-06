@@ -46,7 +46,7 @@ public class Activity_detail_voisin extends AppCompatActivity {
        mAdress = findViewById(R.id.adress);
        mTelephone = findViewById(R.id.telephone);
        mSiteInternet = findViewById(R.id.site_internet);
-       mAPropos = findViewById(R.id.a_propos_de_moi);
+       mAPropos = findViewById(R.id.text_a_propos_de_moi);
        mPhotoProfile = findViewById(R.id.photoProfil);
        mIdProfile = findViewById(R.id.id_profile);
        mFavoritBouton = findViewById(R.id.bouton_flottan);

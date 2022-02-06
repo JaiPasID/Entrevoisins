@@ -59,7 +59,6 @@
         app:layout_anchor="@id/app_bar"
         app:layout_anchorGravity="bottom|end"
         android:layout_marginEnd="15dp"
-        android:src="@drawable/star_yellow_free"
         android:backgroundTint="@color/white"
         android:contentDescription="@string/boutton_favorie"/>
 
