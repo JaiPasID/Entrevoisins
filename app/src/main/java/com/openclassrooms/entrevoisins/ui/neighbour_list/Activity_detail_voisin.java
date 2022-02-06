@@ -4,19 +4,13 @@ import static com.openclassrooms.entrevoisins.ui.neighbour_list.MyNeighbourRecyc
 
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.di.DI;
 import com.openclassrooms.entrevoisins.model.Neighbour;
@@ -37,6 +31,8 @@ public class Activity_detail_voisin extends AppCompatActivity {
     private NeighbourApiService mApiService ;
 
     Neighbour neighbour;
+
+
 
 
 
@@ -107,10 +103,12 @@ public class Activity_detail_voisin extends AppCompatActivity {
                 if (mApiService.IsFavoris(neighbour)){
 
                     mApiService.removeFromeFavoris(neighbour);
+                    changeFavoris();
 
                 }else {
 
                     mApiService.addVoisinFavoris(neighbour);
+                    changeFavoris();
                 }
             }
         });
@@ -121,11 +119,11 @@ public class Activity_detail_voisin extends AppCompatActivity {
 
         if (mApiService.IsFavoris(neighbour)){
 
-            // todo changer bouton elle doit etre jaune ici
+            mFavoritBouton.setImageResource(R.drawable.start_full);
 
         }else {
 
-            // todo changer bouton elle doit etre blanche ici
+            mFavoritBouton.setImageResource(R.drawable.star_yellow_free);
         }
 
     }

@@ -52,9 +52,10 @@
     <include layout="@layout/content_scrolling" />
 
     <android.support.design.widget.FloatingActionButton
+
+        android:id="@+id/bouton_flottan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/bouton_flottan"
         app:layout_anchor="@id/app_bar"
         app:layout_anchorGravity="bottom|end"
         android:layout_marginEnd="15dp"
