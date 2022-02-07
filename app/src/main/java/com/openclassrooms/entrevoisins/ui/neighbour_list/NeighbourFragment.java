@@ -27,6 +27,7 @@ public class NeighbourFragment extends Fragment {
     private NeighbourApiService mApiService;
     private List<Neighbour> mNeighbours;
     private RecyclerView mRecyclerView;
+    private static boolean mFragmentList;
 
     /**
      * Create and return a new instance
@@ -35,6 +36,7 @@ public class NeighbourFragment extends Fragment {
     public static NeighbourFragment newInstance() {
 
         NeighbourFragment fragment = new NeighbourFragment();
+
         return fragment;
     }
 
@@ -62,9 +64,17 @@ public class NeighbourFragment extends Fragment {
 
 
     private void initList() {
-        mNeighbours = mApiService.getNeighbours();
+
+        if (mFragmentList == false){
+            mNeighbours = mApiService.getNeighbours();
+        }else {
+            mNeighbours= mApiService.getFavorisNeihgbours();
+        }
+
         mRecyclerView.setAdapter(new MyNeighbourRecyclerViewAdapter(mNeighbours));
+        mFragmentList = !mFragmentList;
     }
+
 
 
     @Override
