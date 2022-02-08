@@ -24,6 +24,8 @@ public class ListNeighbourPagerAdapter extends FragmentPagerAdapter {
 
     public Fragment getItem(int position) { return NeighbourFragment.newInstance();}
 
+
+
     /**
      * get the number of pages
      * @return
