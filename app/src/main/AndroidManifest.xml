@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.neighbour_list.Activity_detail_voisin"
+            android:name=".ui.neighbour_list.ActivityDetailVoisin"
             android:theme="@style/AppTheme.NoActionBar"
             android:parentActivityName=".ui.neighbour_list.AddNeighbourActivity"
             android:exported="false" />

@@ -27,17 +27,24 @@ public class NeighbourFragment extends Fragment {
     private NeighbourApiService mApiService;
     private List<Neighbour> mNeighbours;
     private RecyclerView mRecyclerView;
-    private static boolean mFragmentList;
+   //private static boolean mFragmentList;
+    private int VPPposition;
+    private static String ClefFragment = "KEYS_FRAGMENT";
+
 
     /**
      * Create and return a new instance
      * @return @{@link NeighbourFragment}
      */
-    public static NeighbourFragment newInstance() {
+    public static NeighbourFragment newInstance(int position) {
 
         NeighbourFragment fragment = new NeighbourFragment();
 
+        Bundle args = new Bundle();
+        args.putInt(ClefFragment, position);
+        fragment.setArguments(args);
         return fragment;
+
     }
 
 
@@ -52,6 +59,7 @@ public class NeighbourFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_neighbour_list, container, false);
         Context context = view.getContext();
+        VPPposition = getArguments().getInt(ClefFragment);
         mRecyclerView = (RecyclerView) view;
         mRecyclerView.setLayoutManager(new LinearLayoutManager(context));
         mRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
@@ -65,14 +73,13 @@ public class NeighbourFragment extends Fragment {
 
     private void initList() {
 
-        if (!mFragmentList){
+        if (VPPposition == 0){
             mNeighbours = mApiService.getNeighbours();
         }else {
             mNeighbours= mApiService.getFavorisNeihgbours();
         }
 
         mRecyclerView.setAdapter(new MyNeighbourRecyclerViewAdapter(mNeighbours));
-        mFragmentList = !mFragmentList;
     }
 
 

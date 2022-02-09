@@ -18,7 +18,7 @@ import com.openclassrooms.entrevoisins.service.NeighbourApiService;
 
 import java.lang.annotation.Target;
 
-public class Activity_detail_voisin extends AppCompatActivity {
+public class ActivityDetailVoisin extends AppCompatActivity {
 
     Toolbar mToolbar;
 

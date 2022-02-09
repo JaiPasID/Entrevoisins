@@ -13,6 +13,7 @@ import java.util.List;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Unit test on Neighbour service
@@ -27,6 +28,7 @@ public class NeighbourServiceTest {
         service = DI.getNewInstanceApiService();
     }
 
+
     @Test
     public void getNeighboursWithSuccess() {
         List<Neighbour> neighbours = service.getNeighbours();
@@ -40,4 +42,13 @@ public class NeighbourServiceTest {
         service.deleteNeighbour(neighbourToDelete);
         assertFalse(service.getNeighbours().contains(neighbourToDelete));
     }
+
+    @Test
+    public void addVoisinFavorisWithSuccess(){
+        Neighbour neighbourFavoris = service.getNeighbours().get(0);
+        assertFalse(service.getFavorisNeihgbours().contains(neighbourFavoris));
+        service.addVoisinFavoris(neighbourFavoris);
+        assertTrue(service.getFavorisNeihgbours().contains(neighbourFavoris));
+    }
+
 }
