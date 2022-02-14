@@ -9,6 +9,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertFalse;
@@ -50,5 +51,23 @@ public class NeighbourServiceTest {
         service.addVoisinFavoris(neighbourFavoris);
         assertTrue(service.getFavorisNeihgbours().contains(neighbourFavoris));
     }
+
+    @Test
+    public  void removeFromeFavorisWithSuccess(){
+        Neighbour deleteFavoris = service.getNeighbours().get(0);
+        assertFalse(service.getFavorisNeihgbours().contains(deleteFavoris));
+        service.addVoisinFavoris(deleteFavoris);
+        assertTrue(service.getFavorisNeihgbours().contains(deleteFavoris));
+        service.removeFromeFavoris(deleteFavoris);
+        assertFalse(service.getFavorisNeihgbours().contains(deleteFavoris));
+    }
+
+    @Test
+    public void getFavorisNeihgboursWithSuccess(){
+        List<Neighbour> favorisNeighbourgs = service.getFavorisNeihgbours();
+        List<Neighbour> expectedNeighbours = new ArrayList<>();
+        assertThat(favorisNeighbourgs, IsIterableContainingInAnyOrder.containsInAnyOrder(expectedNeighbours.toArray()));
+    }
+
 
 }
