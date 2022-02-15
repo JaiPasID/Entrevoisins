@@ -61,6 +61,6 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
 
     @Override
     public boolean IsFavoris(Neighbour neighbour) {
-        return neighbours.contains(neighbour);
+        return favorisNeighbourgs.contains(neighbour);
     }
 }

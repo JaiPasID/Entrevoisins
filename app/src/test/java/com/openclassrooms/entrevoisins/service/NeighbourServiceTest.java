@@ -64,10 +64,17 @@ public class NeighbourServiceTest {
 
     @Test
     public void getFavorisNeihgboursWithSuccess(){
-        List<Neighbour> favorisNeighbourgs = service.getFavorisNeihgbours();
-        List<Neighbour> expectedNeighbours = new ArrayList<>();
-        assertThat(favorisNeighbourgs, IsIterableContainingInAnyOrder.containsInAnyOrder(expectedNeighbours.toArray()));
+        assertTrue(service.getFavorisNeihgbours().size()==0);
+        Neighbour neighbourFavoris = service.getNeighbours().get(0);
+        service.addVoisinFavoris(neighbourFavoris);
+        assertTrue(service.getFavorisNeihgbours().size()==1);
     }
 
-
+    @Test
+    public void IsFavorisWithSuccess(){
+        Neighbour neighbour = service.getNeighbours().get(0);
+        assertFalse(service.IsFavoris(neighbour));
+        service.addVoisinFavoris(neighbour);
+        assertTrue(service.IsFavoris(neighbour));
+    }
 }
