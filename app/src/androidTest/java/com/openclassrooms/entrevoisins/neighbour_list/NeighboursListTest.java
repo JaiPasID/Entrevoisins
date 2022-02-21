@@ -1,13 +1,19 @@
 
 package com.openclassrooms.entrevoisins.neighbour_list;
 
+import android.support.test.espresso.Espresso;
+import android.support.test.espresso.ViewAction;
+import android.support.test.espresso.action.Swipe;
+import android.support.test.espresso.action.ViewActions;
 import android.support.test.espresso.contrib.RecyclerViewActions;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
+import android.support.v4.os.IResultReceiver;
 import android.view.View;
 
 import com.openclassrooms.entrevoisins.R;
+import com.openclassrooms.entrevoisins.ui.neighbour_list.ActivityDetailVoisin;
 import com.openclassrooms.entrevoisins.ui.neighbour_list.ListNeighbourActivity;
 import com.openclassrooms.entrevoisins.utils.ClickOnItem;
 import com.openclassrooms.entrevoisins.utils.DeleteViewAction;
@@ -19,14 +25,18 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import static android.support.test.espresso.Espresso.onView;
+import static android.support.test.espresso.action.ViewActions.swipeLeft;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.assertThat;
 import static android.support.test.espresso.matcher.ViewMatchers.hasMinimumChildCount;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static android.support.test.espresso.matcher.ViewMatchers.withClassName;
 import static android.support.test.espresso.matcher.ViewMatchers.withContentDescription;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
+import static android.support.test.espresso.matcher.ViewMatchers.withResourceName;
 import static com.openclassrooms.entrevoisins.utils.RecyclerViewItemCountAssertion.withItemCount;
 import static org.hamcrest.Matchers.allOf;
+import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.core.IsNull.notNullValue;
 
 
@@ -82,26 +92,51 @@ public class NeighboursListTest {
 
 
     @Test
-    public void viewFavorisOnSucces(){
+    public void checkDetailNeighbour(){
 
         onView(getViewWithContentDescription()).check(matches(isDisplayed()));
         onView(getViewWithContentDescription()).perform(RecyclerViewActions.actionOnItemAtPosition(3, new ClickOnItem()));
         onView(withId(R.id.pageDetail)).check(matches(isDisplayed()));
     }
 
-    // VERIFIER QUE  LORSQU ON CLIQUE SUR LA POSIITON 3 LE NOM DU VOISIN EST AFFICHE
-    //DUPLIQUER LA METHODE ET VERIFIER QUE LE NOM AFFICHER EST LE NOM SUR LEQUEL LE SYSTEME A CLIQUER
-    //GETNAME POUR VERIFIER SON NOM
+
+    @Test
+    public void veifyNameNeighbour(){
+
+        onView(getViewWithContentDescription()).check(matches(isDisplayed()));
+        onView(getViewWithContentDescription()).perform(RecyclerViewActions.actionOnItemAtPosition(3, new ClickOnItem()));
+        onView(withId(R.id.pageDetail)).check(matches(isDisplayed()));
+        onView(withClassName(containsString(ActivityDetailVoisin.class.getName())));
+    }
 
 
-    //POUR LA DERNIERE METODE DUPLIQUER LES DEUX PREMEIRE LIGNE
-    //PERMFORMER LE CLIQUE SUR
-    //PRESSBACK POUR REVENIR EN ARRIERE ET CLIQUER SUR UN AUTRE VOISIN
-    //PERFORME LE CLIQUE SUR LE VOISIN
-    //VERIFIER QUE LE NOMBRE DANS LE RECYCLER VIEW = 2
-    //NE PAS OUBLIER QUE LE PRESSBACK LA DESCRITION EST "1"
 
-    //RESSBACK ET SWIPELIFT RECHERC A FAIRE SUR ESPRESSO
+    @Test
+    public void verifyPositionNeighbour(){
+
+
+        onView(getViewWithContentDescription()).check(matches(isDisplayed()));
+        onView(getViewWithContentDescription()).perform(RecyclerViewActions.actionOnItemAtPosition(3, new ClickOnItem()));
+        onView(withId(R.id.pageDetail)).check(matches(isDisplayed()));
+        onView(withId(R.id.bouton_flottan)).perform(ViewActions.click());
+        Espresso.pressBack();
+        onView(allOf(withId(R.id.list_neighbours), withContentDescription("1"))).perform(swipeLeft());
+
+
+        // POUR LA DERNIERE METODE DUPLIQUER LES DEUX PREMEIRE LIGNE
+        // PERMFORMER LE CLIQUE SUR
+        // PRESSBACK POUR REVENIR EN ARRIERE ET CLIQUER SUR UN AUTRE VOISIN
+        // PERFORME LE CLIQUE SUR LE VOISIN
+        // VERIFIER QUE LE NOMBRE DANS LE RECYCLER VIEW = 2
+        // NE PAS OUBLIER QUE LE PRESSBACK LA DESCRITION EST "1"
+
+    }
+
+
+
+
+
+    // RESSBACK ET SWIPELIFT RECHERCHE A FAIRE SUR ESPRESSO
 
 }
 
