@@ -34,6 +34,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.withClassName;
 import static android.support.test.espresso.matcher.ViewMatchers.withContentDescription;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withResourceName;
+import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static com.openclassrooms.entrevoisins.utils.RecyclerViewItemCountAssertion.withItemCount;
 import static org.hamcrest.Matchers.allOf;
 import static org.hamcrest.Matchers.containsString;
@@ -101,42 +102,28 @@ public class NeighboursListTest {
 
 
     @Test
-    public void veifyNameNeighbour(){
+    public void verifyNameNeighbour(){
 
         onView(getViewWithContentDescription()).check(matches(isDisplayed()));
         onView(getViewWithContentDescription()).perform(RecyclerViewActions.actionOnItemAtPosition(3, new ClickOnItem()));
         onView(withId(R.id.pageDetail)).check(matches(isDisplayed()));
-        onView(withClassName(containsString(ActivityDetailVoisin.class.getName())));
+        onView(withId(R.id.nom)).check(matches(withText("Vincent")));
     }
 
 
 
     @Test
-    public void verifyPositionNeighbour(){
-
+    public void verifyListFavorisNeighbour(){
 
         onView(getViewWithContentDescription()).check(matches(isDisplayed()));
         onView(getViewWithContentDescription()).perform(RecyclerViewActions.actionOnItemAtPosition(3, new ClickOnItem()));
         onView(withId(R.id.pageDetail)).check(matches(isDisplayed()));
         onView(withId(R.id.bouton_flottan)).perform(ViewActions.click());
         Espresso.pressBack();
-        onView(allOf(withId(R.id.list_neighbours), withContentDescription("1"))).perform(swipeLeft());
-
-
-        // POUR LA DERNIERE METODE DUPLIQUER LES DEUX PREMEIRE LIGNE
-        // PERMFORMER LE CLIQUE SUR
-        // PRESSBACK POUR REVENIR EN ARRIERE ET CLIQUER SUR UN AUTRE VOISIN
-        // PERFORME LE CLIQUE SUR LE VOISIN
-        // VERIFIER QUE LE NOMBRE DANS LE RECYCLER VIEW = 2
-        // NE PAS OUBLIER QUE LE PRESSBACK LA DESCRITION EST "1"
-
+        onView(allOf(withId(R.id.list_neighbours), withContentDescription("0"))).perform(swipeLeft());
+        onView(allOf(withId(R.id.list_neighbours), withContentDescription("1")))
+                .check(matches(hasMinimumChildCount(1)));
     }
-
-
-
-
-
-    // RESSBACK ET SWIPELIFT RECHERCHE A FAIRE SUR ESPRESSO
 
 }
 

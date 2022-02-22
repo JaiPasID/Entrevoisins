@@ -27,7 +27,6 @@ public class NeighbourFragment extends Fragment {
     private NeighbourApiService mApiService;
     private List<Neighbour> mNeighbours;
     private RecyclerView mRecyclerView;
-   //private static boolean mFragmentList;
     private int VPPposition;
     private static String ClefFragment = "KEYS_FRAGMENT";
 
