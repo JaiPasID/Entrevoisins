@@ -68,7 +68,6 @@ public class NeighbourServiceTest {
         Neighbour neighbourFavoris = service.getNeighbours().get(0);
         service.addVoisinFavoris(neighbourFavoris);
         assertTrue(service.getFavorisNeihgbours().size()==1);
-        //assertTrue(service.getFavorisNeihgbours().contains(neighbourFavoris));
     }
 
     @Test

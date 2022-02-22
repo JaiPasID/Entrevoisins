@@ -59,7 +59,7 @@ public class NeighbourFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_neighbour_list, container, false);
         Context context = view.getContext();
-        view.setContentDescription(String.valueOf(VPPposition));
+        view.setContentDescription(String.valueOf(VPPposition)); // for testing
         mRecyclerView = (RecyclerView) view;
         mRecyclerView.setLayoutManager(new LinearLayoutManager(context));
         mRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
