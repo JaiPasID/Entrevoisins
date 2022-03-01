@@ -79,12 +79,11 @@ public class NeighboursListTest {
     @Test
     public void myNeighboursList_deleteAction_shouldRemoveItem() {
         // Given : We remove the element at position 2
-        onView(ViewMatchers.withId(R.id.list_neighbours)).check(withItemCount(ITEMS_COUNT));
+        onView(getViewWithContentDescription()).check(matches(isDisplayed())).check(withItemCount(ITEMS_COUNT));
         // When perform a click on a delete icon
-        onView(ViewMatchers.withId(R.id.list_neighbours))
-                .perform(RecyclerViewActions.actionOnItemAtPosition(1, new DeleteViewAction()));
+        onView(getViewWithContentDescription()).perform(RecyclerViewActions.actionOnItemAtPosition(2,new DeleteViewAction()));
         // Then : the number of element is 11
-        onView(ViewMatchers.withId(R.id.list_neighbours)).check(withItemCount(ITEMS_COUNT-1));
+        onView(getViewWithContentDescription()).check(matches(isDisplayed())).check(withItemCount(ITEMS_COUNT-1));
     }
 
     private Matcher<View>getViewWithContentDescription(){
