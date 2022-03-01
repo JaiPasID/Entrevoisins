@@ -22,7 +22,7 @@ public class ActivityDetailVoisin extends AppCompatActivity {
 
     Toolbar mToolbar;
 
-    TextView mNom, mAdress, mTelephone, mSiteInternet, mAPropos, mIdProfile;
+    TextView mNom, mAdress, mTelephone, mSiteInternet, mAPropos;
 
     ImageView mPhotoProfile;
 
@@ -48,7 +48,7 @@ public class ActivityDetailVoisin extends AppCompatActivity {
        mSiteInternet = findViewById(R.id.site_internet);
        mAPropos = findViewById(R.id.text_a_propos_de_moi);
        mPhotoProfile = findViewById(R.id.photoProfil);
-       mIdProfile = findViewById(R.id.id_profile);
+
        mFavoritBouton = findViewById(R.id.bouton_flottan);
 
         mApiService = DI.getNeighbourApiService();
@@ -68,6 +68,8 @@ public class ActivityDetailVoisin extends AppCompatActivity {
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+
+
     }
 
     private void initview(){
@@ -82,8 +84,9 @@ public class ActivityDetailVoisin extends AppCompatActivity {
         String aPropos = neighbour.getAboutMe();
 
 
-        Glide.with(mPhotoProfile.getContext())
+        Glide.with(this)
                 .load(neighbour.getAvatarUrl())
+                .centerCrop()
                 .into(mPhotoProfile);
 
         mNom.setText(name);
@@ -91,7 +94,7 @@ public class ActivityDetailVoisin extends AppCompatActivity {
         mTelephone.setText(tel);
         mSiteInternet.setText(site);
         mAPropos.setText(aPropos);
-        mIdProfile.setText(name);
+        mToolbar.setTitle(name);
 
     }
 
