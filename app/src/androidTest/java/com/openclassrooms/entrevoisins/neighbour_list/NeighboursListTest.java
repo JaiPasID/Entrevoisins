@@ -78,10 +78,10 @@ public class NeighboursListTest {
      */
     @Test
     public void myNeighboursList_deleteAction_shouldRemoveItem() {
-        // Given : We remove the element at position 2
+        // Given : We remove the element at position 5
         onView(getViewWithContentDescription()).check(matches(isDisplayed())).check(withItemCount(ITEMS_COUNT));
         // When perform a click on a delete icon
-        onView(getViewWithContentDescription()).perform(RecyclerViewActions.actionOnItemAtPosition(2,new DeleteViewAction()));
+        onView(getViewWithContentDescription()).perform(RecyclerViewActions.actionOnItemAtPosition(5,new DeleteViewAction()));
         // Then : the number of element is 11
         onView(getViewWithContentDescription()).check(matches(isDisplayed())).check(withItemCount(ITEMS_COUNT-1));
     }
